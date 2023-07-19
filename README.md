@@ -1,6 +1,6 @@
-# Pin-array App: Design and Development
+# PinArray App: Design and Development
 
-> Pin-array App: An artistic application that renders 3D objects and provides UI dashboard for controlling hardware.
+> PinArray App: An artistic application that renders 3D objects and provides UI dashboard for controlling hardware.
 >
 > <details><summary>SAFETY NOTE (not related to this document)</summary>
 > SAFETY NOTE: there are two main instruments, Podium and Pin-Array
