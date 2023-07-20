@@ -1,4 +1,4 @@
-# PinArray App: Design and Development
+# PinArray App
 
 > PinArray App: An artistic application that renders 3D objects and provides UI dashboard for controlling hardware.
 >
@@ -18,13 +18,15 @@
 >   - To avoid damages to the instruments, make sure the plugs detached from socket before moving them, chemicals away from them, and no heavy objects upon them
 > </details>
 
+### Requirements
+
 Prototype: ==***TODO***==
 
-* Administration Scene: Initialization [Only for developers]
-  * Choose COM number
-  * $m \times n$ size pin-array — [ $(5 \times 5) \cdot (4 \times 4)$ ]
+* *Administration Scene*: Initialization [Only for developers]
+  * `drop-down menu` — Choose COM number
+  * `input field` — $m \times n$ size pin-array — [ $(5 \times 5) \cdot (4 \times 4)$ ]
   * `button` — Submit
-* **Player Scene**: User participation & Render
+* ***Player Scene***: User participation & Render
   * Right part
     * `button` — Submit [send to hardware], Reset [reset all to 0]
     * `scroll bar` — Handle button with a bar showing range $[0, 150]$ with different colors
@@ -37,3 +39,19 @@ Prototype: ==***TODO***==
     * `button` — Full screen [Left-top, click for full screen or exit full screen]
     * Along with function of location change (by dragging)
     * Along with function of **zooming** in and out (by two fingers)
+
+### Development Plan
+
+- [ ] *Administration Scene*
+  - [ ] `drop-down menu` for choosing COM number
+  - [ ] `input field` for the numbers of rows and columns
+  - [ ] `button` for submitting and transferring to ***Player Scene***
+- [ ]  ***Player Scene*** - Right Part
+  - [ ] `panel` for displaying and manipulating (for now, use click for selection)
+  - [ ] `scroll bar` with different colors along it for changing heights; at the same time, `panel` also changes its color and internal heights
+  - [ ] `button` for generating JSON strings and sending to hardware
+  - [ ] Zooming and Dragging for better user experience
+- [ ]  ***Player Scene*** - Left Part
+  - [ ] `wall` for rendering onscreen (only half-screen type for now)
+  - [ ] `button` for entering and exiting full-screen
+  - [ ] Zooming and Dragging for better user experience
