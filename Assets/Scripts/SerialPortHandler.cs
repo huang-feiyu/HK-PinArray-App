@@ -19,9 +19,17 @@ public class SerialPortHandler : MonoBehaviour
         Disconnect();
 
         _port = new SerialPort(portName, BaudRate, Parity.None, 8, StopBits.None);
-        _port.Open();
 
-        return _port is { IsOpen: true };
+        try
+        {
+            _port.Open();
+            return true;
+        }
+        catch (Exception ex)
+        {
+            Debug.LogWarning("Failed to open port: " + ex.Message);
+            return false;
+        }
     }
 
     public static void Disconnect()
