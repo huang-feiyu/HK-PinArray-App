@@ -2,39 +2,45 @@ using UnityEngine;
 using System;
 using System.IO.Ports;
 
-
 public class SerialPortHandler : MonoBehaviour
 {
-    public static SerialPort Port; // Global singleton
+    private static SerialPort _port; // Global singleton
 
     private const int BaudRate = 115200;
 
-    public string[] GetPorts()
+    public static string[] GetPorts()
     {
+        // Hard to get description of port (always choose the biggest one or the newer one)
         return SerialPort.GetPortNames();
     }
 
-    public bool Connect(string portName)
+    public static bool Connect(string portName)
     {
-        Port = new SerialPort(portName, BaudRate, Parity.None, 8, StopBits.None);
-        Port.Open();
+        Disconnect();
 
-        return Port is { IsOpen: true };
+        _port = new SerialPort(portName, BaudRate, Parity.None, 8, StopBits.None);
+        _port.Open();
+
+        return _port is { IsOpen: true };
     }
 
-    public bool Disconnect()
+    public static bool Disconnect()
     {
-        var res = Port is { IsOpen: true };
-        if (Port is { IsOpen: true })
+        var res = _port is { IsOpen: true };
+        if (res)
         {
-            Port.Close();
+            _port.Close();
+            Debug.Log("Close " + _port.PortName);
         }
 
         return res;
     }
 
-    public void Write(string message)
+    public static void Write(string message)
     {
-        Port.WriteLine(message);
+        if (_port is { IsOpen: true })
+        {
+            _port.WriteLine(message);
+        }
     }
 }
