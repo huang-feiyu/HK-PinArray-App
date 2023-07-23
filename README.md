@@ -22,7 +22,7 @@
 
 Prototype: ==***TODO***==
 
-* *Administration Scene*: Initialization [Only for developers]
+* *Adminstrator Scene*: Initialization [Only for developers]
   * `drop-down menu` — Choose COM number
   * `input field` — $m \times n$ size pin-array — [ $(5 \times 5) \cdot (4 \times 4)$ ]
   * `button` — Submit
@@ -42,7 +42,7 @@ Prototype: ==***TODO***==
 
 ### Development Plan
 
-- [x] *Administration Scene*
+- [x] *Administrator Scene*
   - [x] `drop-down menu` for choosing COM number
   - [x] `input field` for the numbers of rows and columns
   - [x] `button` for submitting and transferring to ***Player Scene***
@@ -55,3 +55,9 @@ Prototype: ==***TODO***==
   - [ ] `wall` for rendering onscreen (only half-screen type for now)
   - [ ] `button` for entering and exiting full-screen
   - [ ] Zooming and Dragging for better user experience
+
+### Current
+
+* Administrator Scene (Using built-in assets, no need to optimize)
+
+![Admin](https://github.com/huang-feiyu/HK-PinArray-App/assets/70138429/6c545910-98c9-42ca-9cbb-023e33bc5e44)
