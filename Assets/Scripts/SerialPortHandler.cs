@@ -27,7 +27,7 @@ public class SerialPortHandler : MonoBehaviour
         }
         catch (Exception ex)
         {
-            Debug.LogWarning("Failed to open port: " + ex.Message);
+            Debug.LogError("Failed to open port: " + ex.Message);
             return false;
         }
     }
