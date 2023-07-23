@@ -24,16 +24,13 @@ public class SerialPortHandler : MonoBehaviour
         return _port is { IsOpen: true };
     }
 
-    public static bool Disconnect()
+    public static void Disconnect()
     {
-        var res = _port is { IsOpen: true };
-        if (res)
+        if (_port is { IsOpen: true })
         {
             _port.Close();
             Debug.Log("Close " + _port.PortName);
         }
-
-        return res;
     }
 
     public static void Write(string message)

@@ -42,9 +42,9 @@ Prototype: ==***TODO***==
 
 ### Development Plan
 
-- [ ] *Administration Scene*
+- [x] *Administration Scene*
   - [x] `drop-down menu` for choosing COM number
-  - [ ] `input field` for the numbers of rows and columns
+  - [x] `input field` for the numbers of rows and columns
   - [x] `button` for submitting and transferring to ***Player Scene***
 - [ ]  ***Player Scene*** - Right Part
   - [ ] `panel` for displaying and manipulating (for now, use click for selection)
