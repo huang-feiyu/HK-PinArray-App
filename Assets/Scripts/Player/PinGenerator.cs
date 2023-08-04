@@ -1,39 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-/**
- * === PinGenerator.cs ===
- * Description: C# script that performs as a method class, can be attached to any objects
- * Function:
- *      - Generate Pins & Walls
- */
-public class PinGenerator : MonoBehaviour
+namespace Player
 {
-    private Vector3 UIStartPoint;
-    private const int PinSize = 160;
-
-    public GameObject pinPrefab;
-    public Transform pinParent;
-
-    void Start()
+    /**
+     * === PinGenerator.cs ===
+     * Description: C# script that performs as a method class, can be attached to any objects
+     * Function:
+     *      - Generate Pins & Walls
+     */
+    public class PinGenerator : MonoBehaviour
     {
-        UIStartPoint = pinParent.GetComponent<RectTransform>().position;
-        GeneratePin();
-    }
+        private Vector3 UIStartPoint;
+        private const int PinSize = 160;
 
-    void GeneratePin()
-    {
-        GlobalManager.Pins = new();
+        public GameObject pinPrefab;
+        public Transform pinParent;
 
-        for (var col = 0; col < GlobalManager.Cols; col++)
+        void Start()
         {
-            for (var row = 0; row < GlobalManager.Rows; row++)
+            UIStartPoint = pinParent.GetComponent<RectTransform>().position;
+            GeneratePin();
+        }
+
+        void GeneratePin()
+        {
+            GlobalManager.Pins = new();
+
+            for (var col = 0; col < GlobalManager.Cols; col++)
             {
-                var pin = Instantiate(pinPrefab, pinParent);
-                pin.transform.position = new Vector3(row * PinSize, -col * PinSize, 0) + UIStartPoint;
-                GlobalManager.Pins.Add(pin.GetComponent<Pin>());
+                for (var row = 0; row < GlobalManager.Rows; row++)
+                {
+                    var pin = Instantiate(pinPrefab, pinParent);
+                    pin.transform.position = new Vector3(row * PinSize, -col * PinSize, 0) + UIStartPoint;
+                    GlobalManager.Pins.Add(pin.GetComponent<Pin>());
+                }
             }
         }
     }
