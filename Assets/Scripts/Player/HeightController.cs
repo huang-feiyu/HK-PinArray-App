@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 /**
@@ -10,15 +7,15 @@ using UnityEngine.UI;
  * Description: C# script that will be attached to HeightController with few children components
  * Function:
  *      - Display height value
- *      - TODO: update pin's heights, gradient color display
+ *      - Update height value
+ *      - TODO: generate gradient color value
  */
 public class HeightController : MonoBehaviour
 {
-    private const int MaxHeight = 500;
+    private const int MaxHeight = 150;
     public Slider slider;
     public TMP_Text heightText;
 
-    // Start is called before the first frame update
     void Start()
     {
         slider.value = 0;
@@ -28,6 +25,11 @@ public class HeightController : MonoBehaviour
 
     void OnHeightChange(float value)
     {
-        heightText.text = ((int)(value * MaxHeight)).ToString();
+        var height = Mathf.RoundToInt(value * MaxHeight);
+        heightText.text = height.ToString();
+        foreach (var pin in GlobalManager.Pins)
+        {
+            pin.SetHeight(height);
+        }
     }
 }

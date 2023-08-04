@@ -8,7 +8,6 @@ using UnityEngine.Serialization;
  * Description: C# script that performs as a method class, can be attached to any objects
  * Function:
  *      - Generate Pins & Walls
- *      - TODO: generate JSON string
  */
 public class PinGenerator : MonoBehaviour
 {
@@ -26,12 +25,15 @@ public class PinGenerator : MonoBehaviour
 
     void GeneratePin()
     {
+        GlobalManager.Pins = new();
+
         for (var col = 0; col < GlobalManager.Cols; col++)
         {
             for (var row = 0; row < GlobalManager.Rows; row++)
             {
                 var pin = Instantiate(pinPrefab, pinParent);
                 pin.transform.position = new Vector3(row * PinSize, -col * PinSize, 0) + UIStartPoint;
+                GlobalManager.Pins.Add(pin.GetComponent<Pin>());
             }
         }
     }

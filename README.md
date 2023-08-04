@@ -52,12 +52,14 @@
   - [x] `button` for submitting and transferring to ***Player Scene***
 - [ ]  ***Player Scene*** - Right Part
   - [x] `panel` for displaying and manipulating (for now, use click for selection)
-  - [ ] `scroll bar` with different colors along it for changing heights; at the same time, `panel` also changes its color and internal heights
+  - [x] `scroll bar` for changing heights; at the same time, `panel` also changes heights
   - [ ] `button` for selecting/unselecting all, generating JSON strings, sending to hardware
+  - [ ] Different colors display which depends on height
   - [ ] Zooming and Dragging for better user experience
 - [ ]  ***Player Scene*** - Left Part
   - [ ] `wall` for rendering onscreen (only half-screen type for now)
   - [ ] `button` for entering and exiting full-screen
+  - [ ] Different colors display which depends on height
   - [ ] Zooming and Dragging for better user experience
 
 ### Current
