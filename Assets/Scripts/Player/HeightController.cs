@@ -10,7 +10,7 @@ using UnityEngine.UI;
  * Description: C# script that will be attached to HeightController with few children components
  * Function:
  *      - Display height value
- *      - 
+ *      - TODO: update pin's heights, gradient color display
  */
 public class HeightController : MonoBehaviour
 {

@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
  * Description: C# script that performs as a method class, can be attached to any objects
  * Function:
  *      - Generate Pins & Walls
- *      -
+ *      - TODO: generate JSON string
  */
 public class PinGenerator : MonoBehaviour
 {

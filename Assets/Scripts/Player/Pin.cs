@@ -14,6 +14,7 @@ using UnityEngine.UI;
  *      - Click to select or unselect (temporarily use two colors to indicate selected or not)
  *      - Hold pins along with heights
  *      - Update pin color according to heights
+ *      - TODO: Gradient color display, dragging & zooming manipulation
  */
 public class Pin : MonoBehaviour
 {
