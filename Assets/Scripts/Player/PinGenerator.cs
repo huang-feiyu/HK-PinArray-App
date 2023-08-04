@@ -20,15 +20,12 @@ public class PinGenerator : MonoBehaviour
 
     void Start()
     {
-        GlobalManager.Cols = 5;
-        GlobalManager.Rows = 5;
-
+        UIStartPoint = pinParent.GetComponent<RectTransform>().position;
         GeneratePin();
     }
 
     void GeneratePin()
     {
-        UIStartPoint = pinParent.GetComponent<RectTransform>().position;
         for (var col = 0; col < GlobalManager.Cols; col++)
         {
             for (var row = 0; row < GlobalManager.Rows; row++)

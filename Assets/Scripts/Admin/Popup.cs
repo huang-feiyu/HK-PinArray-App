@@ -1,13 +1,17 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Admin
 {
     public class Popup : MonoBehaviour
     {
+        public string playerScene = "Scene/PlayerScene";
+
         public Popup popup;
         public TMP_Text info;
+
 
         private void Start()
         {
@@ -21,14 +25,14 @@ namespace Admin
 
         public void OnClickDebug()
         {
-            info.text = "Transfer to Player Scene [Debug]";
             GlobalManager.DebugMode = true;
+            SceneManager.LoadScene(playerScene);
         }
 
         public void OnClickPlay()
         {
-            info.text = "Transfer to Player Scene [Normal]";
             GlobalManager.DebugMode = false;
+            SceneManager.LoadScene(playerScene);
         }
     }
 }

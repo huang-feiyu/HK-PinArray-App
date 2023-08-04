@@ -14,7 +14,7 @@ namespace Admin
         void Start()
         {
             rows.text = "5";
-            cols.text = "1";
+            cols.text = "5";
         }
 
         public void OnClickConnect()
