@@ -7,7 +7,7 @@ namespace Admin
 {
     public class Popup : MonoBehaviour
     {
-        public string playerScene = "Scene/PlayerScene";
+        public string playerScene = "Scenes/PlayerScene";
 
         public Popup popup;
         public TMP_Text info;
