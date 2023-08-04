@@ -22,7 +22,7 @@
 
 Prototype: ==***TODO***==
 
-* *Adminstrator Scene*: Initialization [Only for developers]
+* *Administrator Scene*: Initialization [Only for developers]
   * `drop-down menu` — Choose COM number
   * `input field` — $m \times n$ size pin-array — [ $(5 \times 5) \cdot (4 \times 4)$ ]
   * `button` — Submit
