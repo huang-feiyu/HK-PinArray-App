@@ -28,7 +28,7 @@ Prototype: ==***TODO***==
   * `button` — Submit
 * ***Player Scene***: User participation & Render
   * Right part
-    * `button` — Submit [send to hardware], Reset [reset all to 0]
+    * `button` — Select All, Submit [send to hardware], Reset [reset all to 0]
     * `scroll bar` — Handle button with a bar showing range $[0, 150]$ with different colors
     * `panel` — 400-pins array which can be selected individually (also can use dragging for smooth selection), and render with different colors
     * `mini map` — Overview of 400-pins and highlighting for current display (always in square), can be also used for location change
@@ -49,7 +49,7 @@ Prototype: ==***TODO***==
 - [ ]  ***Player Scene*** - Right Part
   - [ ] `panel` for displaying and manipulating (for now, use click for selection)
   - [ ] `scroll bar` with different colors along it for changing heights; at the same time, `panel` also changes its color and internal heights
-  - [ ] `button` for generating JSON strings and sending to hardware
+  - [ ] `button` for selecting/unselecting all, generating JSON strings, sending to hardware
   - [ ] Zooming and Dragging for better user experience
 - [ ]  ***Player Scene*** - Left Part
   - [ ] `wall` for rendering onscreen (only half-screen type for now)

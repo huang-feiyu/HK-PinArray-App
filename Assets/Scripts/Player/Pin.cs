@@ -17,10 +17,10 @@ using UnityEngine.UI;
  */
 public class Pin : MonoBehaviour
 {
-    public static Color NormalColor = Color.white;
-    public static Color SelectedColor = Color.grey;
+    private static readonly Color NormalColor = Color.white;
+    private static readonly Color SelectedColor = Color.grey;
 
-    private Tuple<Transform, int>[] pins;
+    private Tuple<Transform, int>[] _pins;
     public List<int> selectedPins = new();
 
     // Start is called before the first frame update
@@ -28,10 +28,10 @@ public class Pin : MonoBehaviour
     {
         // Initialization for pin-heights
         var i = 0;
-        pins = new Tuple<Transform, int>[16];
+        _pins = new Tuple<Transform, int>[16];
         foreach (Transform pin in transform)
         {
-            pins[i] = new Tuple<Transform, int>(pin, 0);
+            _pins[i] = new Tuple<Transform, int>(pin, 0);
             i++;
         }
 
@@ -48,7 +48,7 @@ public class Pin : MonoBehaviour
     {
         for (var i = 0; i < 16; i++)
         {
-            if (pin.gameObject != pins[i].Item1.gameObject) continue;
+            if (pin.gameObject != _pins[i].Item1.gameObject) continue;
 
             var button = pin.GetComponent<Button>();
             if (selectedPins.Contains(i))
@@ -71,7 +71,7 @@ public class Pin : MonoBehaviour
     {
         foreach (var i in selectedPins)
         {
-            pins[i] = new Tuple<Transform, int>(pins[i].Item1, height);
+            _pins[i] = new Tuple<Transform, int>(_pins[i].Item1, height);
         }
     }
 
@@ -80,7 +80,7 @@ public class Pin : MonoBehaviour
         var heights = new int[16];
         for (int i = 0; i < 16; i++)
         {
-            heights[i] = pins[i].Item2;
+            heights[i] = _pins[i].Item2;
         }
 
         return heights;
