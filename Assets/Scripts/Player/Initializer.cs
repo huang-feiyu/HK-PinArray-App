@@ -12,20 +12,13 @@ namespace Player
     {
         public GameObject pinPrefab;
         public Transform pinParent;
-        private const int PinSize = 160;
-        private Vector3 _pinStartPoint; // (-620, 220, 0)
 
         public GameObject wallPrefab;
         public Transform wallParent;
-        private const int WallSize = 100;
-        private Vector3 _wallStartPoint; // (1400, 900, -100)
 
         void Start()
         {
-            _pinStartPoint = pinParent.GetComponent<RectTransform>().position;
             GeneratePin();
-
-            _wallStartPoint = wallParent.GetComponent<RectTransform>().position;
             GenerateWall();
         }
 
@@ -38,7 +31,8 @@ namespace Player
                 for (var row = 0; row < GlobalManager.Rows; row++)
                 {
                     var pin = Instantiate(pinPrefab, pinParent);
-                    pin.transform.position = new Vector3(row * PinSize, -col * PinSize, 0) + _pinStartPoint;
+                    pin.transform.localPosition = new Vector3(row * GlobalManager.PinSize * 4,
+                        -col * GlobalManager.PinSize * 4, 0);
                     GlobalManager.Pins.Add(pin.GetComponent<Pin>());
                 }
             }
@@ -53,7 +47,8 @@ namespace Player
                 for (var row = 0; row < GlobalManager.Rows; row++)
                 {
                     var wall = Instantiate(wallPrefab, wallParent);
-                    wall.transform.position = new Vector3(row * WallSize, -col * WallSize, 0) + _wallStartPoint;
+                    wall.transform.localPosition = new Vector3(row * GlobalManager.CubeSize * 4,
+                        -col * GlobalManager.CubeSize * 4, 0);
                     GlobalManager.Walls.Add(wall.GetComponent<Wall>());
                 }
             }

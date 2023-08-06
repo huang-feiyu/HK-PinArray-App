@@ -53,12 +53,12 @@
 - [ ]  ***Player Scene*** - Right Part
   - [x] `panel` for displaying and manipulating (for now, use click for selection)
   - [x] `scroll bar` for changing heights; at the same time, `panel` also changes heights
-  - [x] `button` for selecting/unselecting all, generating JSON strings, sending to hardware
+  - [x] `button` for selecting/unselecting all, generating JSON strings, sending to hardware, returning to admin (Debug)
   - [ ] Different colors display which depends on height
   - [ ] Zooming and Dragging for better user experience
   - [ ] Better appearance
 - [ ]  ***Player Scene*** - Left Part
-  - [ ] `wall` for rendering onscreen (only half-screen type for now)
+  - [x] `wall` for rendering onscreen (only half-screen type for now)
   - [ ] `button` for entering and exiting full-screen
   - [ ] Zooming and Dragging for better user experience
   - [ ] Better appearance
@@ -72,3 +72,7 @@
 * Right Part (Manipulation)
 
 ![Right Part](https://github.com/huang-feiyu/HK-PinArray-App/assets/70138429/a9ba5d16-9705-4dc5-aa7e-90a71ee61e6a)
+
+* Left Part (Rendering)
+
+![Left Part](https://github.com/huang-feiyu/HK-PinArray-App/assets/70138429/557e86de-e4e2-4aa0-8e35-a0396f16072d)

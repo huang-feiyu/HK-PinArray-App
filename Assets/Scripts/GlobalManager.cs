@@ -11,4 +11,7 @@ public static class GlobalManager
 
     public static List<Pin> Pins;
     public static List<Wall> Walls;
+
+    public const int CubeSize = (int)(25 * 1.2);
+    public const int PinSize = 40;
 }

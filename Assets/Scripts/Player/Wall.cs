@@ -15,7 +15,7 @@ namespace Player
         private Transform[] _cubes;
         public List<int> selectedCubes = new();
 
-        private float initZ;
+        private float _initZ;
 
         void Start()
         {
@@ -26,7 +26,7 @@ namespace Player
                 _cubes[i] = cube;
                 i++;
 
-                initZ = cube.position.z;
+                _initZ = cube.position.z;
             }
         }
 
@@ -34,8 +34,9 @@ namespace Player
         {
             foreach (var i in selectedCubes)
             {
-                _cubes[i].localScale = new Vector3(25, 25, 25 + height);
-                _cubes[i].position = new Vector3(_cubes[i].position.x, _cubes[i].position.y, initZ - (float)height / 2);
+                _cubes[i].localScale = new Vector3(GlobalManager.CubeSize, GlobalManager.CubeSize,
+                    GlobalManager.CubeSize + height);
+                _cubes[i].position = new Vector3(_cubes[i].position.x, _cubes[i].position.y, _initZ - (float)height / 2);
             }
         }
     }
