@@ -10,4 +10,5 @@ public static class GlobalManager
     public static int Cols = 5;
 
     public static List<Pin> Pins;
+    public static List<Wall> Walls;
 }

@@ -27,9 +27,14 @@ namespace Player
         {
             var height = Mathf.RoundToInt(value * GlobalManager.MaxHeight);
             heightText.text = height.ToString();
-            foreach (var pin in GlobalManager.Pins)
+            for (var i = 0; i < 16; i++)
             {
-                pin.SetHeight(height);
+                print(GlobalManager.Walls[i]);
+                print(GlobalManager.Pins[i]);
+                GlobalManager.Walls[i].selectedCubes = GlobalManager.Pins[i].selectedPins;
+
+                GlobalManager.Pins[i].SetHeight(height);
+                GlobalManager.Walls[i].SetHeight(height);
             }
         }
     }
