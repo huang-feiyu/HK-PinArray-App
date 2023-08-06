@@ -5,9 +5,9 @@ public static class GlobalManager
 {
     public const int MaxHeight = 150;
 
-    public static bool DebugMode = false;
-    public static int Rows;
-    public static int Cols;
+    public static bool DebugMode = true;
+    public static int Rows = 5;
+    public static int Cols = 5;
 
     public static List<Pin> Pins;
 }

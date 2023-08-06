@@ -10,7 +10,7 @@ namespace Player
      */
     public class PinGenerator : MonoBehaviour
     {
-        private Vector3 UIStartPoint;
+        private Vector3 UIStartPoint; // (-620, 220, 0)
         private const int PinSize = 160;
 
         public GameObject pinPrefab;

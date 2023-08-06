@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Player
@@ -10,8 +11,9 @@ namespace Player
      * Description: C# script that will be attached to Prefab Pin
      * Function:
      *      - Click to select or unselect (temporarily use two colors to indicate selected or not)
-     *      - Hold pins along with heights
      *      - Update pin color according to heights
+     *      - Hold SelectAll status along with SelectAll/UnselectAll
+     *      - Hold pins along with heights along with getter/setter
      *      - TODO: Gradient color display, dragging & zooming manipulation
      */
     public class Pin : MonoBehaviour
@@ -21,6 +23,8 @@ namespace Player
 
         private Tuple<Transform, int>[] _pins;
         public List<int> selectedPins = new();
+
+        public bool selectAll = false;
 
         // Start is called before the first frame update
         void Start()
@@ -63,6 +67,40 @@ namespace Player
 
                 break;
             }
+
+            selectAll = selectedPins.Count == 16;
+        }
+
+        public void SelectAll()
+        {
+            for (var i = 0; i < 16; i++)
+            {
+                var button = _pins[i].Item1.GetComponent<Button>();
+                button.image.color = SelectedColor;
+                if (!selectedPins.Contains(i))
+                {
+                    selectedPins.Add(i);
+                }
+            }
+
+            selectAll = selectedPins.Count == 16;
+        }
+
+        public void UnselectAll()
+        {
+            for (var i = 0; i < 16; i++)
+            {
+                var button = _pins[i].Item1.GetComponent<Button>();
+                button.image.color = NormalColor;
+            }
+
+            selectedPins = new List<int>();
+            selectAll = selectedPins.Count == 16;
+        }
+
+        public bool GetSelectAll()
+        {
+            return selectAll;
         }
 
         // Update selected heights (invoked by ScrollBar)
