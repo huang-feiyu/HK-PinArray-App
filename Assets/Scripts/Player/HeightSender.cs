@@ -48,7 +48,7 @@ namespace Player
 
             var jsonObj = new PortJson
             {
-                i = i + 1, // NOTE: i+1
+                i = GlobalManager.Pins.Count - i, // NOTE: i+1
                 c = reset ? "reset" : "motor",
                 d = heights
             };
