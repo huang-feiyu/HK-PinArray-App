@@ -12,8 +12,8 @@ namespace Admin
 
         void Start()
         {
-            rows.text = "5";
-            cols.text = "5";
+            rows.text = GlobalManager.Rows.ToString();
+            cols.text = GlobalManager.Cols.ToString();
         }
 
         public void OnClickConnect()

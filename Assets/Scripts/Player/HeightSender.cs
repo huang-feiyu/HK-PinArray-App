@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using UnityEngine;
 
 namespace Player
@@ -12,13 +13,31 @@ namespace Player
      */
     public class HeightSender : MonoBehaviour
     {
+        public bool isDebugTime = false;
+        public int debugTimes = 5;
+        public int debugTimesDuration = 1;
+        public int debugDuration = 15;
+
         public void OnClickSubmit()
         {
             for (var i = 0; i < GlobalManager.Pins.Count; i++)
             {
                 var json = GetJsonFromHeights(i);
                 print(json);
-                SerialPortHandler.Write(json);
+
+                if (isDebugTime)
+                {
+                    for (var j = 0; j < debugTimes; j++)
+                    {
+                        SerialPortHandler.Write(json);
+                        Thread.Sleep(debugTimesDuration);
+                    }
+                }
+                else
+                {
+                    SerialPortHandler.Write(json);
+                    Thread.Sleep(debugDuration);
+                }
             }
         }
 
@@ -46,9 +65,10 @@ namespace Player
                 reset &= height == 0;
             }
 
+            Array.Reverse(heights);
             var jsonObj = new PortJson
             {
-                i = i + 1, // NOTE: i+1
+                i = GlobalManager.Pins.Count - i, // NOTE: i+1
                 c = reset ? "reset" : "motor",
                 d = heights
             };
