@@ -1760,6 +1760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedPins: 
+  selectAll: 0
 --- !u!1 &8335015890619238903
 GameObject:
   m_ObjectHideFlags: 0

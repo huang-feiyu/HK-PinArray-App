@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -43,6 +45,23 @@ namespace Player
             {
                 var button = pin.GetComponent<Button>();
                 button.onClick.AddListener(() => OnPinClick(pin));
+            }
+        }
+
+        private void Update()
+        {
+            if (GlobalManager.Dragging)
+            {
+                for (var i = 0; i < 16; i++)
+                {
+                    var button = _pins[i].Item1.GetComponent<Button>();
+                    if (RectTransformUtility.RectangleContainsScreenPoint(button.GetComponent<RectTransform>(),
+                            Input.mousePosition) && !selectedPins.Contains(i))
+                    {
+                        selectedPins.Add(i);
+                        button.image.color = SelectedColor;
+                    }
+                }
             }
         }
 

@@ -14,4 +14,6 @@ public static class GlobalManager
 
     public const int CubeSize = (int)(25 * 1.2);
     public const int PinSize = 40;
+
+    public static bool Dragging = false;
 }

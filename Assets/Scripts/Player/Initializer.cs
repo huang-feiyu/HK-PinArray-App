@@ -57,5 +57,16 @@ namespace Player
                 }
             }
         }
+
+
+        public static void OnBeginDrag()
+        {
+            GlobalManager.Dragging = true;
+        }
+
+        public static void OnEndDrag()
+        {
+            GlobalManager.Dragging = false;
+        }
     }
 }
