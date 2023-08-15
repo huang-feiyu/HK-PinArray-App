@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using System.Threading;
 using UnityEngine;
 
 namespace Player
@@ -17,8 +19,9 @@ namespace Player
             for (var i = 0; i < GlobalManager.Pins.Count; i++)
             {
                 var json = GetJsonFromHeights(i);
-                print(json);
-                SerialPortHandler.Write(json);
+                print(" " + json);
+                SerialPortHandler.Write(" " + json);
+                Thread.Sleep(15);
             }
         }
 
@@ -46,6 +49,7 @@ namespace Player
                 reset &= height == 0;
             }
 
+            Array.Reverse(heights);
             var jsonObj = new PortJson
             {
                 i = GlobalManager.Pins.Count - i, // NOTE: i+1

@@ -6,8 +6,8 @@ public static class GlobalManager
     public const int MaxHeight = 150;
 
     public static bool DebugMode = true;
-    public static int Rows = 5;
-    public static int Cols = 5;
+    public static int Rows = 1;
+    public static int Cols = 2;
 
     public static List<Pin> Pins;
     public static List<Wall> Walls;

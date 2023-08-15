@@ -6,6 +6,7 @@ namespace Admin
 {
     public class Dropdown : MonoBehaviour
     {
+        public bool HardwareTest = false;
         public TMP_Dropdown dropdown;
 
         public string selectedItem;
@@ -22,11 +23,12 @@ namespace Admin
             selectedItem = dropdown.options[index].text;
         }
 
-        void UpdateItems()
+        public void UpdateItems()
         {
             dropdown.ClearOptions();
             var portNames = new List<string>(SerialPortHandler.GetPorts());
             portNames.Insert(0, "NONE");
+            if (HardwareTest) portNames.Reverse();
             dropdown.AddOptions(portNames);
 
             SelectItem();
