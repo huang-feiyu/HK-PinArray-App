@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using System.Threading;
 using UnityEngine;
 
@@ -14,14 +13,31 @@ namespace Player
      */
     public class HeightSender : MonoBehaviour
     {
+        public bool isDebugTime = false;
+        public int debugTimes = 5;
+        public int debugTimesDuration = 1;
+        public int debugDuration = 15;
+
         public void OnClickSubmit()
         {
             for (var i = 0; i < GlobalManager.Pins.Count; i++)
             {
                 var json = GetJsonFromHeights(i);
-                print(" " + json);
-                SerialPortHandler.Write(" " + json);
-                Thread.Sleep(15);
+                print(json);
+
+                if (isDebugTime)
+                {
+                    for (var j = 0; j < debugTimes; j++)
+                    {
+                        SerialPortHandler.Write(json);
+                        Thread.Sleep(debugTimesDuration);
+                    }
+                }
+                else
+                {
+                    SerialPortHandler.Write(json);
+                    Thread.Sleep(debugDuration);
+                }
             }
         }
 
