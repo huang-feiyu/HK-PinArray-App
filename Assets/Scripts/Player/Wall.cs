@@ -36,7 +36,8 @@ namespace Player
             {
                 _cubes[i].localScale = new Vector3(GlobalManager.CubeSize, GlobalManager.CubeSize,
                     GlobalManager.CubeSize + height);
-                _cubes[i].position = new Vector3(_cubes[i].position.x, _cubes[i].position.y, _initZ - (float)height / 2);
+                _cubes[i].position =
+                    new Vector3(_cubes[i].position.x, _cubes[i].position.y, _initZ - (float)height / 2);
             }
         }
     }

@@ -52,10 +52,13 @@ namespace Player
                 {
                     var wall = Instantiate(wallPrefab, wallParent);
                     wall.transform.localPosition = new Vector3(row * GlobalManager.CubeSize * 4,
-                        -col * GlobalManager.CubeSize * 4, 0);
+                        -col * GlobalManager.CubeSize * 4, -30);
                     GlobalManager.Walls.Add(wall.GetComponent<Wall>());
                 }
             }
+
+            wallParent.localPosition = new Vector3(-GlobalManager.Rows * GlobalManager.CubeSize,
+                GlobalManager.Cols * GlobalManager.CubeSize, 0);
         }
 
 
