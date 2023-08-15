@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.TextCore;
 
 namespace Player
 {
@@ -36,6 +37,9 @@ namespace Player
                     GlobalManager.Pins.Add(pin.GetComponent<Pin>());
                 }
             }
+
+            pinParent.localPosition = new Vector3(-GlobalManager.Rows * GlobalManager.PinSize,
+                GlobalManager.Cols * GlobalManager.PinSize, 0);
         }
 
         void GenerateWall()
