@@ -16,4 +16,6 @@ public static class GlobalManager
     public const int PinSize = 40;
 
     public static bool Dragging = false;
+
+    public static bool Waving = false;
 }

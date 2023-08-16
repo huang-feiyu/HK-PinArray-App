@@ -64,6 +64,7 @@ namespace Player
 
         public static void OnBeginDrag()
         {
+            GlobalManager.Waving = false;
             GlobalManager.Dragging = true;
         }
 
