@@ -3,11 +3,13 @@ using Player;
 
 public static class GlobalManager
 {
-    public const int MaxHeight = 150;
+    public const int MaxHeight = 200;
 
     public static bool DebugMode = true;
     public static int Rows = 2;
     public static int Cols = 2;
+
+    public static List<int> IArray;
 
     public static List<Pin> Pins;
     public static List<Wall> Walls;
@@ -18,4 +20,6 @@ public static class GlobalManager
     public static bool Dragging = false;
 
     public static bool Waving = false;
+
+    public static bool IsBenchmark = false;
 }

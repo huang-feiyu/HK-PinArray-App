@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TextCore;
 
@@ -21,6 +22,32 @@ namespace Player
         {
             GeneratePin();
             GenerateWall();
+
+            var cols = GlobalManager.Cols;
+            var rows = GlobalManager.Rows;
+            var matrix = new int[GlobalManager.Rows][];
+            for (var i = 0; i < rows; i++)
+            {
+                matrix[i] = new int[cols];
+                for (var j = 0; j < cols; j++)
+                {
+                    matrix[i][j] = i * rows + j;
+                }
+            }
+
+            for (var i = 0; i < rows / 2; i++)
+            {
+                (matrix[i], matrix[rows - i - 1]) = (matrix[rows - i - 1], matrix[i]);
+            }
+
+            GlobalManager.IArray = new List<int>();
+            for (var i = 0; i < rows; i++)
+            {
+                for (var j = 0; j < cols; j++)
+                {
+                    GlobalManager.IArray.Add(matrix[i][j]);
+                }
+            }
         }
 
         void GeneratePin()

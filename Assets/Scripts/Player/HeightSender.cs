@@ -1,5 +1,6 @@
 using System;
 using System.Threading;
+using Unity.VisualScripting.FullSerializer.Internal;
 using UnityEngine;
 
 namespace Player
@@ -20,6 +21,11 @@ namespace Player
 
         public void OnClickSubmit()
         {
+            if (GlobalManager.Waving || GlobalManager.IsBenchmark)
+            {
+                return;
+            }
+
             for (var i = 0; i < GlobalManager.Pins.Count; i++)
             {
                 var json = GetJsonFromHeights(i);
@@ -55,7 +61,7 @@ namespace Player
             public int[] d;
         }
 
-        private string GetJsonFromHeights(int i)
+        public string GetJsonFromHeights(int i)
         {
             // if all 0 => reset
             var heights = GlobalManager.Pins[i].GetHeight();
@@ -68,7 +74,7 @@ namespace Player
             Array.Reverse(heights);
             var jsonObj = new PortJson
             {
-                i = GlobalManager.Pins.Count - i, // NOTE: i+1
+                i = GlobalManager.IArray[i],
                 c = reset ? "reset" : "motor",
                 d = heights
             };

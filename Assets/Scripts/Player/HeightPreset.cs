@@ -14,7 +14,7 @@ namespace Player
 
         private float _waveRemaining;
 
-        public HeightSender _sender;
+        public HeightSender sender;
 
         public void Start()
         {
@@ -47,7 +47,7 @@ namespace Player
 
                         print("Send to Pin-" + i);
 
-                        _sender.OnClickSubmit();
+                        sender.OnClickSubmit();
                     }
                 }
             }
