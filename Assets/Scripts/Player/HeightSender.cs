@@ -74,8 +74,8 @@ namespace Player
             Array.Reverse(heights);
             var jsonObj = new PortJson
             {
-                i = GlobalManager.IArray[i],
-                c = reset ? "reset" : "motor",
+                i = GlobalManager.IArray[i] + 1,
+                c = /*reset ? "reset" : */"motor",
                 d = heights
             };
             var json = JsonUtility.ToJson(jsonObj);

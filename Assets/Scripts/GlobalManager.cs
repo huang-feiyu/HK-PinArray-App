@@ -6,8 +6,8 @@ public static class GlobalManager
     public const int MaxHeight = 200;
 
     public static bool DebugMode = true;
-    public static int Rows = 2;
-    public static int Cols = 2;
+    public static int Rows = 1;
+    public static int Cols = 1;
 
     public static List<int> IArray;
 
